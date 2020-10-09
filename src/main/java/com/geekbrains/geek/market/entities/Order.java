@@ -25,4 +25,15 @@ public class Order {
 
     @Column(name = "price")
     private int price;
+
+    @Column(name = "Client")
+    private String client;
+
+    @Column(name = "Phone")
+    private String phone;
+
+    @Column(name = "delivery_address")
+    private String deliveryAddress;
+
+
 }

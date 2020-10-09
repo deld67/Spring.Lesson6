@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.WebApplicationContext;
 
 import javax.annotation.PostConstruct;
+import javax.persistence.Column;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -23,6 +24,7 @@ import java.util.List;
 public class Cart {
     private List<OrderItem> items;
     private int price;
+    private boolean inorder ;
 
     @PostConstruct
     public void init() {
@@ -84,4 +86,6 @@ public class Cart {
             price += o.getPrice();
         }
     }
+
+
 }

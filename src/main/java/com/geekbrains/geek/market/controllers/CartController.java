@@ -1,19 +1,21 @@
 package com.geekbrains.geek.market.controllers;
 
+import com.geekbrains.geek.market.entities.Order;
+import com.geekbrains.geek.market.entities.OrderItem;
 import com.geekbrains.geek.market.entities.Product;
 import com.geekbrains.geek.market.exceptions.ResourceNotFoundException;
+import com.geekbrains.geek.market.services.OrderService;
 import com.geekbrains.geek.market.services.ProductService;
 import com.geekbrains.geek.market.utils.Cart;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/cart")
@@ -21,7 +23,7 @@ import java.io.IOException;
 public class CartController {
     private ProductService productService;
     private Cart cart;
-
+    private OrderService orderService;
     @GetMapping
     public String showCartPage(HttpSession session) {
         return "cart";
@@ -54,4 +56,13 @@ public class CartController {
         cart.remove(productId);
         return "redirect:/cart";
     }
+
+    @GetMapping("/getorderform")
+    public String getorderform() {
+        cart.setInorder(true);
+        return "redirect:/cart";
+    }
+
+
+
 }
