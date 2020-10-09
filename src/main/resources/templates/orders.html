@@ -20,17 +20,15 @@
         <thead class="thead-dark">
         <tr>
             <th>ID</th>
-            <th>Клиент</th>
             <th>Товар</th>
             <th>Цена</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="o : ${orders}">
+        <tr th:each="o : ${orders.items.items}">
             <td th:text="${o.id}"/>
-            <td th:text="${o.client}"/>
             <td th:text="${o.product.title}"/>
-            <td th:text="${o.currentPrice}"/>
+            <td th:text="${o.quantity + ' x ' + o.pricePerProduct + ' = ' + o.price}"/>
         </tr>
         </tbody>
     </table>

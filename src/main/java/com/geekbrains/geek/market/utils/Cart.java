@@ -87,5 +87,10 @@ public class Cart {
         }
     }
 
+    public void clear() {
+        items.clear();
+        price = 0;
+        inorder = false;
+    }
 
 }

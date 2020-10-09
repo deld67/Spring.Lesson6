@@ -1,10 +1,7 @@
 package com.geekbrains.geek.market.controllers;
 
-import com.geekbrains.geek.market.entities.Order;
-import com.geekbrains.geek.market.entities.OrderItem;
 import com.geekbrains.geek.market.entities.Product;
 import com.geekbrains.geek.market.exceptions.ResourceNotFoundException;
-import com.geekbrains.geek.market.services.OrderService;
 import com.geekbrains.geek.market.services.ProductService;
 import com.geekbrains.geek.market.utils.Cart;
 import lombok.AllArgsConstructor;
@@ -23,7 +20,7 @@ import java.util.Map;
 public class CartController {
     private ProductService productService;
     private Cart cart;
-    private OrderService orderService;
+
     @GetMapping
     public String showCartPage(HttpSession session) {
         return "cart";
