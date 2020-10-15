@@ -42,6 +42,11 @@ public class ProductController {
         return productService.findById(id).orElseThrow(() -> new ResourceNotFoundException("Product with id: " + id + " doesn't exists"));
     }
 
+    @PostMapping("/showme")
+    public void showMeObject(@RequestBody Product p) {
+        System.out.println(p);
+    }
+
     @GetMapping("/edit/{id}")
     public String showEditForm(@PathVariable Long id, Model model) {
         Product p = productService.findById(id).orElseThrow(() -> new ResourceNotFoundException("Product with id: " + id + " doesn't exists (for edit)"));
