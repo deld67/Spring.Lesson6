@@ -39,6 +39,7 @@ public class OrderController {
         cart.getItems().forEach(io->io.setOrder(order));
         order.setItems(cart.getItems());
         orderService.save(order);
+        cart.clear();
         return "<h1>Заказ оформлен</h1><p>Ваш заказ #" + order.getId()+" оформлен успешно.<br> В ближайшее время менеджер с вами свяжется.";
     }
 

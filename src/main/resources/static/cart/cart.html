@@ -1,0 +1,20 @@
+<div>
+
+
+    <h3>Товары</h3>
+    <table class="table table-hover" cellpadding="0" cellspacing="0">
+        <tr>
+            <td>Название</td>
+            <td>Цена</td>
+        </tr>
+        <tbody>
+
+        <tr ng-repeat="p in Cart.content.getItems()">
+            <td>{{p.product.title}}</td>
+            <td>{{p.product.price}}</td>
+        </tr>
+        </tbody>
+    </table>
+    <button class="btn btn-success" ng-click="fillTable()">Обновить</button>
+
+</div>
