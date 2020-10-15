@@ -2,6 +2,7 @@ package com.geekbrains.geek.market.services;
 
 import com.geekbrains.geek.market.entities.Order;
 import com.geekbrains.geek.market.entities.Product;
+import com.geekbrains.geek.market.entities.User;
 import com.geekbrains.geek.market.repositories.OrderRepository;
 import com.geekbrains.geek.market.repositories.ProductRepository;
 import lombok.AllArgsConstructor;
@@ -17,6 +18,10 @@ public class OrderService {
 
     public List<Order> findAll() {
         return orderRepository.findAll();
+    }
+
+    public List<Order> findAllByUser(User user) {
+        return orderRepository.findAllByUser(user);
     }
 
     public Order save(Order order) {
